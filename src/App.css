@@ -1,47 +1,46 @@
-/* Reset */
+/* GLOBAL RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* BODY (CENTERED LAYOUT) */
 body {
   font-family: "Inter", Arial, sans-serif;
   background: linear-gradient(135deg, #0f172a, #1e293b);
 
-  /* 🔥 CENTER EVERYTHING */
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
+  padding: 20px; /* important for mobile spacing */
   color: #e2e8f0;
 }
 
-/* 🔥 MAIN CARD (THIS IS THE CENTER BOX) */
+/*MAIN CONTAINER (CARD)*/
 .container {
   width: 100%;
   max-width: 520px;
 
   background: #111827;
   padding: 25px;
+
   border-radius: 16px;
 
-  /* 💡 STRONG BUT CLEAN SHADOW */
   box-shadow:
     0 10px 25px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(255, 255, 255, 0.05);
 
-  /* subtle lift effect */
-  transform: translateY(0);
   transition: 0.3s ease;
 }
 
 .container:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
-/* Title */
+/* TITLE */
 h1 {
   text-align: center;
   margin-bottom: 20px;
@@ -49,14 +48,14 @@ h1 {
   color: #38bdf8;
 }
 
-/* Input row */
+/*INPUT AREA */
 .container > div {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
-/* Input */
+/* INPUT */
 input {
   flex: 1;
   padding: 12px;
@@ -65,22 +64,26 @@ input {
   background: #0f172a;
   color: #e2e8f0;
   outline: none;
+  font-size: 14px;
 }
 
+/* focus effect */
 input:focus {
   border-color: #38bdf8;
   box-shadow: 0 0 0 2px rgba(56,189,248,0.2);
 }
 
-/* Button */
+/*BUTTONS*/
 button {
   padding: 12px 16px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
+
   background: #38bdf8;
   color: #0f172a;
   font-weight: bold;
+
   transition: 0.2s;
 }
 
@@ -88,7 +91,31 @@ button:hover {
   background: #0ea5e9;
 }
 
-/* List */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* FILTER BUTTONS */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filters button {
+  flex: 1;
+  background: #1f2937;
+  color: #e2e8f0;
+  font-size: 13px;
+}
+
+.filters button.active {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+/* TASK LIST */
 ul {
   list-style: none;
   display: flex;
@@ -96,7 +123,7 @@ ul {
   gap: 10px;
 }
 
-/* Task item */
+/* TASK ITEM */
 li {
   display: flex;
   justify-content: space-between;
@@ -104,28 +131,29 @@ li {
 
   background: #1f2937;
   padding: 12px;
-  border-radius: 10px;
 
+  border-radius: 10px;
   transition: 0.2s;
 }
 
 li:hover {
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
-/* Task text */
+/* TASK TEXT */
 li span {
   flex: 1;
   cursor: pointer;
+  font-size: 15px;
 }
 
-/* Completed */
+/* COMPLETED TASK */
 li span.completed {
   text-decoration: line-through;
   color: #94a3b8;
 }
 
-/* Delete button */
+/* DELETE BUTTON */
 li button {
   background: #ef4444;
   color: white;
@@ -136,4 +164,48 @@ li button {
 
 li button:hover {
   background: #dc2626;
+}
+
+/* =========================
+   📱 MOBILE RESPONSIVENESS
+========================= */
+@media (max-width: 600px) {
+
+  .container {
+    padding: 18px;
+    border-radius: 12px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  /* stack input + button */
+  .container > div {
+    flex-direction: column;
+  }
+
+  input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  /* filter buttons stack */
+  .filters {
+    flex-direction: column;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  li button {
+    align-self: flex-end;
+  }
 }
