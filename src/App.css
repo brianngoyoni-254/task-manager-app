@@ -1,0 +1,139 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+
+  /* 🔥 CENTER EVERYTHING */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #e2e8f0;
+}
+
+/* 🔥 MAIN CARD (THIS IS THE CENTER BOX) */
+.container {
+  width: 100%;
+  max-width: 520px;
+
+  background: #111827;
+  padding: 25px;
+  border-radius: 16px;
+
+  /* 💡 STRONG BUT CLEAN SHADOW */
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+
+  /* subtle lift effect */
+  transform: translateY(0);
+  transition: 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-3px);
+}
+
+/* Title */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #38bdf8;
+}
+
+/* Input row */
+.container > div {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Input */
+input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  color: #e2e8f0;
+  outline: none;
+}
+
+input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56,189,248,0.2);
+}
+
+/* Button */
+button {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #38bdf8;
+  color: #0f172a;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #0ea5e9;
+}
+
+/* List */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Task item */
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #1f2937;
+  padding: 12px;
+  border-radius: 10px;
+
+  transition: 0.2s;
+}
+
+li:hover {
+  transform: scale(1.02);
+}
+
+/* Task text */
+li span {
+  flex: 1;
+  cursor: pointer;
+}
+
+/* Completed */
+li span.completed {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+/* Delete button */
+li button {
+  background: #ef4444;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+li button:hover {
+  background: #dc2626;
+}
